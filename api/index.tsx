@@ -33,7 +33,7 @@ const image = `${NEXT_PUBLIC_BASE_URL}/propy.png`;
 // Array of AI Landmark NFTs
 const first_landmark = 
   { 
-    id: '2', 
+    id: '1', 
     url: 'https://propy.mypinata.cloud/ipfs/QmPohGugJXQSC1w4Bw4wTnjWkTyF67QVkjvie4WbgN2iuM', 
     clue: 'https://dapp.propy.com/#/token/base/0xa239b9b3E00637F29f6c7C416ac95127290b950E/214088', 
     answer: 'Art Institute of Chicago',
@@ -43,11 +43,11 @@ const first_landmark =
 
 const second_landmark = 
   { 
-    id: '1', 
+    id: '2', 
     url: 'https://propy.mypinata.cloud/ipfs/QmaoxAmrc8MTZdkKiob7zSVfvoJPWb1gT7K2d3jZNrJqB8', 
     clue: 'https://dapp.propy.com/#/token/base/0xa239b9b3E00637F29f6c7C416ac95127290b950E/214103', 
     answer: 'Red Pyramid',
-    correct_answer: 'https://media.giphy.com/media/9umOff5LV72MZV5iQg/giphy.gif',
+    correct_answer: 'https://media.giphy.com/media/QuTOdlwvMl5lHKbpRC/giphy.gif',
     wrong_answer: 'https://media.giphy.com/media/cnlrYuoaoHbQBdqMem/giphy.gif'
   };
 
@@ -57,8 +57,8 @@ const third_landmark =
     url: 'https://propy.mypinata.cloud/ipfs/QmZ5jJJj5jqNWVom39BnkjEKHbRZWh11Mzwzgqat4ruEDB',
     clue: 'https://dapp.propy.com/#/token/base/0xa239b9b3E00637F29f6c7C416ac95127290b950E/214083', 
     answer: 'Cannes',
-    correct_answer: 'https://media.giphy.com/media/FvepNpsaMtmHy0tBN8/giphy.gif',
-    wrong_answer: 'https://media.giphy.com/media/CvQoLd8ERRZstaxbhe/giphy.gif'
+    correct_answer: 'https://media.giphy.com/media/26uTqJWUxDMgWc5pu/giphy.gif',
+    wrong_answer: 'https://media.giphy.com/media/spfi6nabVuq5y/giphy.gif'
   };
 
 const fourth_landmark = 
@@ -67,7 +67,7 @@ const fourth_landmark =
     url: 'https://propy.mypinata.cloud/ipfs/QmedsJa3wG1Nj4aEkEc6SqBKU9o1zh1cmUsGfiYu5TZS3A',
     clue: 'https://dapp.propy.com/#/token/base/0xa239b9b3E00637F29f6c7C416ac95127290b950E/214074', 
     answer: 'Brixton Market',
-    correct_answer: 'https://media.giphy.com/media/YCk2ktAMKocpxe7j8G/giphy.gif',
+    correct_answer: 'https://media.giphy.com/media/PS7d4tm1Hq6Sk/giphy.gif',
     wrong_answer: 'https://media.giphy.com/media/kBVyxpXLJ94B6G4qHK/giphy.gif'
   };
 
@@ -78,7 +78,7 @@ const fifth_landmark =
     clue: 'https://dapp.propy.com/#/token/base/0xa239b9b3E00637F29f6c7C416ac95127290b950E/214072', 
     answer: 'Nintendo',
     correct_answer: 'https://media.giphy.com/media/26tknCqiJrBQG6bxC/giphy.gif',
-    wrong_answer: 'https://media.giphy.com/media/hPPx8yk3Bmqys/giphy.gif'
+    wrong_answer: 'https://media.giphy.com/media/l4FGuhL4U2WyjdkaY/giphy.gif'
   };
 
 app.frame('/', (c) => {
