@@ -331,9 +331,9 @@ app.frame('/fifth-check', async (c) => {
 
 
 app.frame('/finish', async (c) => {
-  const { username, pfpUrl } = c.var.interactor || {}
+  const { fid, username, pfpUrl } = c.var.interactor || {}
 
-  const embedUrlByUser = `${embedUrl}/share/${username}`;
+  const embedUrlByUser = `${embedUrl}/share/${fid}`;
 
   const SHARE_BY_USER = `${baseUrl}?text=${encodeURIComponent(text)}&embeds[]=${encodeURIComponent(embedUrlByUser)}`;
 
@@ -421,11 +421,22 @@ app.frame('/finish', async (c) => {
   });
 });
 
-app.frame('/share/:username', async (c) => {
-  const { username } = c.req.param();
-  const pfpUrl = c.req.query('pfpUrl');
 
-  const embedUrlByUser = `${embedUrl}/share/${username}`;
+app.frame('/share/:fid', async (c) => {
+  const { fid } = c.req.param();
+
+  const response = await fetch(`https://api.neynar.com/v2/farcaster/user/bulk?fids=${fid}`, {
+    method: 'GET',
+    headers: {
+      'accept': 'application/json',
+      'api_key': process.env.NEYNAR_API_KEY || 'NEYNAR_API_DOCS',
+    },
+  });
+
+  const data = await response.json();
+  const user = data.users[0];
+
+  const embedUrlByUser = `${embedUrl}/share/${fid}`;
 
   const SHARE_BY_USER = `${baseUrl}?text=${encodeURIComponent(text)}&embeds[]=${encodeURIComponent(embedUrlByUser)}`;
 
@@ -466,7 +477,7 @@ app.frame('/share/:username', async (c) => {
           <img
             height="150"
             width="150"
-            src={pfpUrl}
+            src={user.pfpUrl}
             style={{
               borderRadius: "38%",
               border: "3.5px solid #7559EC",
@@ -481,7 +492,7 @@ app.frame('/share/:username', async (c) => {
           position="absolute"
         >
           <Text color="purple" size="18">
-            @{username}
+            @{user.username}
           </Text>
         </Box>
         <Box
