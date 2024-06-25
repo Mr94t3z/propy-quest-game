@@ -444,7 +444,7 @@ app.frame('/share/:fid', async (c) => {
     throw new Error('User data is missing');
   }
 
-  const { username, pfpUrl } = user;
+  const { username, pfp_url: pfpUrl } = user;
 
   if (!pfpUrl) {
     throw new Error('Profile picture URL is missing');
