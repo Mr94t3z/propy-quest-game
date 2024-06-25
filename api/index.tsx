@@ -377,7 +377,7 @@ app.frame('/finish', async (c) => {
             src={pfpUrl}
             style={{
               borderRadius: "38%",
-              border: "3.5px solid #7559EC",
+              border: "3.5px solid #37A6F8",
               objectFit: "cover"
             }}
           />
@@ -494,7 +494,7 @@ app.frame('/share/:fid', async (c) => {
             src={pfpUrl}
             style={{
               borderRadius: "38%",
-              border: "3.5px solid #7559EC",
+              border: "3.5px solid #37A6F8",
               objectFit: "cover"
             }}
           />
