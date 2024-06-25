@@ -333,7 +333,7 @@ app.frame('/fifth-check', async (c) => {
 app.frame('/finish', async (c) => {
   const { username, pfpUrl } = c.var.interactor || {}
 
-  const embedUrlByUser = `${embedUrl}/share/${username}/${pfpUrl}`;
+  const embedUrlByUser = `${embedUrl}/share/${username}`;
 
   const SHARE_BY_USER = `${baseUrl}?text=${encodeURIComponent(text)}&embeds[]=${encodeURIComponent(embedUrlByUser)}`;
 
@@ -421,8 +421,13 @@ app.frame('/finish', async (c) => {
   });
 });
 
-app.frame('/share/:username/:pfpUrl', async (c) => {
-  const { username, pfpUrl } = c.req.param();
+app.frame('/share/:username', async (c) => {
+  const { username } = c.req.param();
+  const pfpUrl = c.req.query('pfpUrl');
+
+  const embedUrlByUser = `${embedUrl}/share/${username}`;
+
+  const SHARE_BY_USER = `${baseUrl}?text=${encodeURIComponent(text)}&embeds[]=${encodeURIComponent(embedUrlByUser)}`;
 
   return c.res({
     title: 'Propy Quest Game',
@@ -502,7 +507,8 @@ app.frame('/share/:username/:pfpUrl', async (c) => {
       </Box>
     ),
     intents: [
-      <Button.Link href={fifth_landmark.clue}>Share on Warpcast</Button.Link>
+      <Button action="/">Play</Button>,
+      <Button.Link href={SHARE_BY_USER}>Share</Button.Link>
     ],
   });
 });
