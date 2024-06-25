@@ -217,11 +217,11 @@ app.frame('/3', async (c) => {
   return c.res({
     title: 'Propy Quest Game',
     imageAspectRatio: '1:1',
-    image: second_landmark.url,
+    image: third_landmark.url,
     intents: [
       <TextInput placeholder="Q: Name of this Landmark?" />,
       <Button action='/third-check'>Submit</Button>,
-      <Button.Link href={second_landmark.clue}>Clue</Button.Link>
+      <Button.Link href={third_landmark.clue}>Clue</Button.Link>
     ],
   });
 });
