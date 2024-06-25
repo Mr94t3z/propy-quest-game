@@ -313,7 +313,7 @@ app.frame('/fifth-check', async (c) => {
       imageAspectRatio: '1:1',
       image: fifth_landmark.correct_answer,
       intents: [
-        <Button action='/finish'>Congratulation</Button>,
+        <Button action='/finish'>Finish</Button>,
       ],
     });
   }
