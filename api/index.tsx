@@ -433,8 +433,22 @@ app.frame('/share/:fid', async (c) => {
     },
   });
 
+  if (!response.ok) {
+    throw new Error('Failed to fetch user data');
+  }
+
   const data = await response.json();
   const user = data.users[0];
+
+  if (!user) {
+    throw new Error('User data is missing');
+  }
+
+  const { username, pfpUrl } = user;
+
+  if (!pfpUrl) {
+    throw new Error('Profile picture URL is missing');
+  }
 
   const embedUrlByUser = `${embedUrl}/share/${fid}`;
 
@@ -477,7 +491,7 @@ app.frame('/share/:fid', async (c) => {
           <img
             height="150"
             width="150"
-            src={user.pfpUrl}
+            src={pfpUrl}
             style={{
               borderRadius: "38%",
               border: "3.5px solid #7559EC",
@@ -492,7 +506,7 @@ app.frame('/share/:fid', async (c) => {
           position="absolute"
         >
           <Text color="purple" size="18">
-            @{user.username}
+            @{username}
           </Text>
         </Box>
         <Box
