@@ -8,7 +8,7 @@ import { Box, Image, Text, vars } from "../lib/ui.js";
 // import { serveStatic } from 'frog/serve-static';
 
 const baseUrl = "https://warpcast.com/~/compose";
-const text = "Get $1000 (not real money, just for fun) by finish @propy quest game 🕹️\nFrame by @0x94t3z.eth";
+const text = "Get $1000 (not real money, just for fun) by finishing the @propy quest game 🕹️\nFrame by @0x94t3z.eth";
 const embedUrl = "https://propy-quest-game.vercel.app/api/frame";
 
 const BROWSER_LOCATION = `${baseUrl}?text=${encodeURIComponent(text)}&embeds[]=${encodeURIComponent(embedUrl)}`;
@@ -26,7 +26,7 @@ export const app = new Frog({
   }),
 )
 
-const NEXT_PUBLIC_BASE_URL = 'http://localhost:5173';
+const NEXT_PUBLIC_BASE_URL = 'https://propy-quest-game.vercel.app' ||  'http://localhost:5173';
 
 const image = `${NEXT_PUBLIC_BASE_URL}/propy.png`;
 
